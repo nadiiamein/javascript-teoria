@@ -1,62 +1,54 @@
-//function
-//function declaration
-function greet(name) {
-    console.log('Hallo - ', name);
+//Array
+const cars = ['Mazda','Ford','BMW', 'RENO'];
+const fib = [1, 1, 2, 3, 5, 8, 13];
+cars.push('Porshe');//add el
+console.log(cars);
+cars.unshift('W');
+
+const firstItem = cars.shift();
+console.log(firstItem);
+console.log(cars);
+const lastCar = cars.pop();
+console.log(lastCar);
+console.log(cars);
+console.log(cars.reverse());
+console.log(cars);
+
+//UBUNG 1 'REVERSE'
+const text = 'Hallo , wir lernen JavaScript';
+const reverseText = text.split('').reverse().join('');
+console.log(reverseText);
+
+console.log(cars.indexOf('BMW'));//suchen position element
+const index = cars.indexOf('BMW');
+cars[index] = 'Dascha';
+console.log(cars);
+const people = [
+    {name: 'Peter', geld: 4200},
+    {name: 'Paola', geld: 3200},
+    {name: 'Piper', geld: 2200},
+
+]
+
+let findedPerson;
+for (const person of people) {
+    if(person.geld === 2200){
+        findedPerson = person;
+    }
 }
-//function Expression
-const greet2 = function greet2(name) {
-    console.log('HAllo 2 -' , name);
-}
-greet('Petr');
-greet2('Angela');
-console.log(typeof greet);
-console.dir(greet);
-//2 anonim function
-let counter = 0;
-const interval = 
-setInterval(function(){
-    if (counter === 5) {
-        clearInterval(interval);
-    } else {
-    console.log(++counter);}
-}, 1000);
+console.log(findedPerson);//1 sposb
 
-//3 arrow function
-function greet3(name) {
-    console.log('Hallo - ', name);
-}
+const index1 = people.findIndex(function(person){
+    return person.geld === 2200;
+});
+console.log(people[index1]);
 
-const arrow = (name) => {
-    console.log('Hallo - ', name);
-}
+const person = people.find(function(person) //2 sposob
+{
+    return person.geld === 4200;
+});
+console.log(person);
 
-arrow('Winter');
-const arrow2 = name => console.log('Hallo - ', name);
-arrow2('Herbst');
-const pow2= num => num **2;
-console.log(pow2(5));
-
-//4 param selbstverstadnis
-const sum = (a= 42, b= a* 2) => a + b;
-console.log(sum());
-console.log(sum(5,6));
-
-function sumAll(...all) {
-    let result = 0;
-    for(let num of all){
-result += num;    }
-    return result;
-}
-const res = sumAll(1,5,7,8,3,5);
-console.log(res);
-
-//5 Ring
-
-function createMember(name) {
-    return function(lastName) {
-        console.log(name + lastName)
-    };
-}
-const logWithLastName = createMember('Luis');
-console.log(logWithLastName('Hirsh'));
-console.log(logWithLastName('Poptr'));
+const person1 = people.find(person => person.geld === 4200);//3 sposob
+console.log(person1);
+console.log(cars.includes('Mazda')); //ob das elemet ist in array
