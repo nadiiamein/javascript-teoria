@@ -52,3 +52,24 @@ console.log(person);
 const person1 = people.find(person => person.geld === 4200);//3 sposob
 console.log(person1);
 console.log(cars.includes('Mazda')); //ob das elemet ist in array
+
+const upperCaseCars = cars.map(car => {
+    return car.toUpperCase();
+});
+console.log(upperCaseCars);
+console.log(cars);
+const pow2 = num => num ** 2;
+const pow2Fib = fib.map(num => num ** 2);
+console.log(pow2Fib);
+const pow3Fib = fib.map(pow2);
+console.log(pow3Fib);
+const filterNumbers = pow3Fib.filter(num => num > 20);
+console.log(filterNumbers);
+const sqrt = num => Math.sqrt(num);
+const pow4Fib = fib.map(pow2).map(Math.sqrt);
+console.log(pow4Fib);
+
+
+
+
+
