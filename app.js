@@ -19,9 +19,17 @@ addStylesTo(heading, 'Deutsch', 'red')}, 1500);
 setTimeout( () => {
     addStylesTo(heading2, 'Und commt alles dabei','orange', '2rem')}, 4000);
 
+    const link = heading3.querySelector('a');
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+        console.log('Click on click',event.target.getAttribute('href'));
+        const url = event.target.getAttribute('href');
+
+        window.location = url;
+    });
 
 setTimeout( () => {
-    addStylesTo(heading3, 'Praktika')}, 3000);
+    addStylesTo(link, 'Praktika')}, 3000);
 
 function addStylesTo(node, text, color = 'black', fontSize = '1rem') {
     node.textContent = text;
@@ -29,6 +37,8 @@ function addStylesTo(node, text, color = 'black', fontSize = '1rem') {
     node.style.textAlign ='center';
     node.style.backgroundColor ='yellow';
     node.style.padding = '2rem';
+    node.style.display = 'block';
+    node.style.width = '100%';
     // falsy: '', undefind, null,0,false
     if (fontSize) {
         node.style.fontSize = fontSize;
@@ -44,3 +54,13 @@ heading.onclick = () => {
         heading.style.backgroundColor = 'yellow';
     }
 };
+
+heading2.addEventListener( 'dblclick', () => {
+    if(heading2.style.color === 'orange') {
+        heading2.style.color = '#000';
+        heading2.style.backgroundColor = 'red';
+    } else {
+        heading2.style.color = 'orange';
+        heading2.style.backgroundColor = 'yellow';
+    }
+});
